@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const userPath = require('./routes/userPatg.js');
+
 
 dotenv.config(); 
 
@@ -35,6 +37,8 @@ app.get('/health', (req, res) => {
   res.json(healthStatus); 
 
 });
+
+app.use('/api/auth',userPath)
 
 
 app.listen(port, () => {
